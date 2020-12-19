@@ -47,9 +47,7 @@ def callback(request):
                    elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
-                   elif mtext == '@網站連結':
-                        func.sendButton(event)
-                        
+                   
                    elif mtext == '@國外相關組織':
                         func.sendButtonb_out(event)
                         
@@ -66,10 +64,10 @@ def callback(request):
                         func.sendYes(event)
                 
                    elif mtext == '@No':
-                        func.send(event)
+                        func.sendNo(event)
                
                    elif mtext == '@位置資訊':
-                        func.sendPosition(event)
+                        func.sendPosition1(event)
 
                    elif mtext == '@聯絡方式':
                         func.sendContact(event)
@@ -77,20 +75,12 @@ def callback(request):
                    elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
                         
-                   elif mtext == '@重要資訊':
-                        func.sendButton3(event)      
+                   elif mtext == '@網站連結':
+                        func.sendButton3(event) 
                         
-                   elif mtext == '@辨別洗錢小知識':
-                        func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
-                  
-                   
-    
-                   
-                
-                   
-                   elif mtext == '@洗錢防治資訊':
-                        func.sendCarousel(event)
-
+                   elif mtext == '@何謂洗錢':
+                        fun.sendMulti2(event)
+                        
                    elif mtext[:3] == '###' and len(mtext) > 3:  #處理LIFF傳回的FORM資料
                         func.manageForm(event, mtext, user_id)
 
