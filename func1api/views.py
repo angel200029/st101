@@ -37,20 +37,9 @@ def callback(request):
                    
                    if   mtext == '@功能介紹':
                         func.sendText(event)
+                        
                    elif mtext == '@國內相關組織':
-                        func.sendQuickreply(event) 
-                   elif mtext == '@傳送圖片':
-                        func.sendImage(event)
-                   elif mtext == '@傳送聲音':
-                        func.sendVoice(event)
-    
-                   elif mtext == '@傳送影片':
-                        func.sendVedio(event)
-                   elif mtext == '@傳送貼圖':
-                        func.sendStick(event)
-    
-                   elif mtext == '@多項傳送':
-                        func.sendMulti(event)
+                        func.sendQuickreply(event)
     
                    elif mtext == '@傳送位置':
                         func.sendPosition(event)
@@ -60,47 +49,45 @@ def callback(request):
               
                    elif mtext == '@網站連結':
                         func.sendButton(event)
-    
-                   elif mtext == '@系統回饋':
-                        func.sendConfirm(event)
-    
-                   elif mtext == '@財經新聞':
-                        func.sendCarousel(event)
-    
-                   elif mtext == '@圖片轉盤':
-                        func.sendImgCarousel(event)
-    
-                   elif mtext == '@Yes':
-                        func.sendYes(event)
-                   elif mtext == '@No':
-                        func.send(event)
-                
-                   elif mtext == '@圖片地圖':
-                        func.sendImgmap(event)
-                   
-                   elif mtext == '@關於我們':
-                        func.sendAbout(event)
-
-                   elif mtext == '@位置資訊':
-                        func.sendPosition(event)
-
-                   elif mtext == '@聯絡方式':
-                        func.sendContact(event)
-                   elif mtext == '@辨別洗錢小知識':
-                        func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
-                  
-                   elif mtext == '@重要資訊':
-                        func.sendButton(event)
-    
-                   elif mtext == '@國內相關組織':
-                        func.sendQuickreply(event) 
-                
+                        
                    elif mtext == '@國外相關組織':
                         func.sendButtonb_out(event)
                         
                    elif mtext == '@國內相關組織':
                         func.sendButtonb_in(event)
+                        
+                   elif mtext == '@財經新聞':
+                        func.sendCarousel(event)
     
+                   elif mtext == '@系統回饋':
+                        func.sendConfirm(event)
+    
+                   elif mtext == '@Yes':
+                        func.sendYes(event)
+                
+                   elif mtext == '@No':
+                        func.send(event)
+               
+                   elif mtext == '@位置資訊':
+                        func.sendPosition(event)
+
+                   elif mtext == '@聯絡方式':
+                        func.sendContact(event)
+                        
+                   elif mtext == '@法律資訊':
+                        func.sendQuickreply(event)
+                        
+                   elif mtext == '@重要資訊':
+                        func.sendButton3(event)      
+                        
+                   elif mtext == '@辨別洗錢小知識':
+                        func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
+                  
+                   
+    
+                   
+                
+                   
                    elif mtext == '@洗錢防治資訊':
                         func.sendCarousel(event)
 
