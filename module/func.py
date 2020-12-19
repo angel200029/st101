@@ -17,10 +17,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def sendText(event):  #傳送文字
     try:
         message = TextSendMessage(  
-            text="您好，我是企業資訊整合分析！\n很高興為您服務!☺
-	        text="以下是我們提供的服務項目："
-	        text="@網站連結\n@國內相關組織\n@國外相關組織\n@辨別洗錢小知識"
-	        text="歡迎點選下方選單了解更多詳情!"
+            text = "我是 Linebot，\n您好！"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
@@ -68,10 +65,10 @@ def sendMulti6(event):  #多項傳送
 def sendPosition(event):  #傳送位置
     try:
         message = LocationSendMessage(
-            title='銘傳大學 經濟與金融學系',
-            address='333桃園市龜山區德明路5號',
-            latitude=24.98606112215958,  #緯度
-            longitude=121.34118714180775  #經度
+            title='101大樓',
+            address='台北市信義路五段7號',
+            latitude=25.034207,  #緯度
+            longitude=121.564590  #經度
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
@@ -80,23 +77,20 @@ def sendPosition(event):  #傳送位置
 def sendQuickreplya(event):  #快速選單
     try:
         message = TextSendMessage(
-            text='請選擇想了解的法律資訊',
+            text='請選擇最喜歡的程式語言',
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=MessageAction(label="金融法規", text="https://law.banking.gov.tw/Chi/default.aspx")
+                        action=MessageAction(label="Python", text="Python")
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="民法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=B0000001")
-                    ),
-			QuickReplyButton(
-                        action=MessageAction(label="刑事訴訟法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0010001")
-                    ),
-			 QuickReplyButton(
-                        action=MessageAction(label="中華民國刑法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0000001")
+                        action=MessageAction(label="Java", text="Java")
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="金管會", text="https://www.fsc.gov.tw/ch/index.jsp")
+                        action=MessageAction(label="C#", text="C#")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="Basic", text="Basic")
                     ),
                 ]
             )
@@ -107,27 +101,24 @@ def sendQuickreplya(event):  #快速選單
 def sendButton4(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='重要資訊',
+            alt_text='按鈕樣板',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
-                title=' ',  #主標題
-                text='相關網站：',  #副標題
-                actions=[
+                    thumbnail_image_url  ='https://i.imgur.com/ZGaXkKd.jpg' ,
+                    title  =  'demo' ,
+                    text  =  'pizza demo' ,
+            actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='"財報狗',
-                        text='https://statementdog.com/'
+                        label='文字訊息',
+                        text='@購買披薩'
                     ),
-		            MessageTemplateAction( 
-                        label='台灣公司網',
-                        text='https://www.twincn.com/'
+                    URITemplateAction(  #開啟網頁
+                        label  =  'website mcu' ,
+                        uri  =  'https://web.mcu.edu.tw/'
                     ),
-		            MessageTemplateAction( 
-                        label='台灣經濟研究院',
-                        text='https://www.tier.org.tw/index.aspx'
-                    ),
-		            MessageTemplateAction( 
-                        label='股市talk',
-                        text='https://stock.cnyes.com/market/TWS:TSE01:INDEX'
+                    PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
+                        label='回傳訊息',  #按鈕文字
+                        #text='@購買披薩',  #顯示文字計息
+                        data='action=buy'  #Postback資料
                     ),
                 ]
             )
@@ -138,10 +129,10 @@ def sendButton4(event):  #按鈕樣版
 
 def sendConfirm(event):  #確認樣板
     try:
-         message = TemplateSendMessage(
-            alt_text='系統回饋',
+        message = TemplateSendMessage(
+            alt_text='確認樣板',
             template=ConfirmTemplate(
-                text='喜歡我們的系統嗎？',
+                text='你確定要購買這項商品嗎？',
                 actions=[
                     MessageTemplateAction(  #按鈕選項
                         label='是',
@@ -248,20 +239,11 @@ def sendPizza(event):
 def sendYes(event):
     try:
         message = TextSendMessage(
-            text='感謝您的喜歡，\n我們必將提供更好服務。♥',
+            text='感謝您的購買，\n我們將盡快寄出商品。',
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendNo(event):
-    try:
-        message = TextSendMessage(
-            text='感謝您的回饋，\n我們必定努力改善！',
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))        
 
 def sendBack_buy(event, backdata):  #處理Postback
     try:
@@ -588,16 +570,16 @@ def sendAbout(event):  #關於我們
 
 def sendPosition(event):  #位置資訊
     try:
-        text1 = "333桃園市龜山區德明路5號"
+        text1 = "地址：南投縣埔里鎮信義路85號"
         message = [
             TextSendMessage(  #顯示地址
                 text = text1
             ),
             LocationSendMessage(  #顯示地圖
-                title = "銘傳大學 經濟與金融學系",
+                title = "宜居旅舍",
                 address = text1,
-                latitude = 24.98606112215958,
-                longitude = 121.34118714180775
+                latitude = 23.97381,
+                longitude = 120.977198
             ),
         ]
         line_bot_api.reply_message(event.reply_token,message)
@@ -607,15 +589,13 @@ def sendPosition(event):  #位置資訊
 def sendContact(event):  #聯絡我們
     try:
         message = TemplateSendMessage(
-            alt_text = "聯絡方式",
+            alt_text = "聯絡我們",
             template = ButtonsTemplate(
-                thumbnail_image_url='E6%91%B3%E7%9F%A2%E9%87%8Fhttps://images.app.goo.gl/zBW6GUcLBVZq4vD5A',
-                title='聯絡方式',
-                text='有任何問題歡迎詢問',
+                thumbnail_image_url='https://i.imgur.com/tVjKzPH.jpg',
+                title='聯絡我們',
+                text='打電話給我們',
                 actions=[
-                    URITemplateAction(label='台北校區', uri='tel:0228824564')  #開啟打電話功能   
-		            URITemplateAction(label='桃園校區', uri='tel:033507001') 
-		            URITemplateAction(label='基河校區', uri='tel:0228824564') 
+                    URITemplateAction(label='撥打電話', uri='tel:0123456789')  #開啟打電話功能
                 ]
             )
         )
