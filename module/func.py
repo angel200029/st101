@@ -265,5 +265,34 @@ def sendCarousel(event):  #轉盤樣板
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+	
+def sendMulti2(event):  #多項傳送
+    try:
+        message = [  #串列
+
+            TextSendMessage(  #傳送y文字
+                text = "何謂洗錢？"
+            ),
+            ImageSendMessage(  #傳送圖片
+                original_content_url ="https://img.itw01.com/images/2018/03/05/20/4828_rb0nUb_C75LEGQ.jpeg!r800x0.jpg",
+                preview_image_url = "https://img.itw01.com/images/2018/03/05/20/4828_rb0nUb_C75LEGQ.jpeg!r800x0.jpg"
+            ),
+
+	   TextSendMessage(  #傳送y文字
+                text = "洗錢:\n將其不法行為活動獲得的資金或財產，透過各種交易管道掩飾或隱匿， 轉換成為合法的資金或財產。"
+            ),
+	   TextSendMessage(  #傳送y文字
+                text = "洗錢的架構:1.特定罪犯行為 2.取得不法利益 3.洗清黑錢"
+            ),
+
+
+            TextSendMessage(  #傳送y文字
+                text ="https://www.youtube.com/watch?v=F-ESYoE0w0k"
+	    ),
+
+        ]
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
