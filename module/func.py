@@ -23,45 +23,6 @@ def sendText(event):  #傳送文字
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendImage(event):  #傳送圖片
-    try:
-        message = ImageSendMessage(
-            original_content_url = "https://i.imgur.com/4QfKuz1.png",
-            preview_image_url = "https://i.imgur.com/4QfKuz1.png"
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendStick(event):  #傳送貼圖
-    try:
-        message = StickerSendMessage(  #貼圖兩個id需查表
-            package_id='1',  
-            sticker_id='2'
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendMulti6(event):  #多項傳送
-    try:
-        message = [  #串列
-            StickerSendMessage(  #傳送貼圖
-                package_id='1',  
-                sticker_id='2'
-            ),
-            TextSendMessage(  #傳送y文字
-                text = "這是 Pizza 圖片！"
-            ),
-            ImageSendMessage(  #傳送圖片
-                original_content_url = "https://i.imgur.com/4QfKuz1.png",
-                preview_image_url = "https://i.imgur.com/4QfKuz1.png"
-            )
-        ]
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
 def sendPosition(event):  #傳送位置
     try:
         message = LocationSendMessage(
@@ -74,7 +35,7 @@ def sendPosition(event):  #傳送位置
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendButton4(event):  #按鈕樣板
+def sendButton(event):  #按鈕樣板
     try:
         message = TemplateSendMessage(
             alt_text='網站連結',
@@ -125,43 +86,6 @@ def sendConfirm(event):  #確認樣板
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-
-def sendImgCarousel2(event):  #圖片轉盤
-    try:
-        message = TemplateSendMessage(
-            alt_text='圖片轉盤樣板',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/4QfKuz1.png',
-                        action=MessageTemplateAction(
-                            label='文字訊息',
-                            text='賣披薩'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
-                        action=PostbackTemplateAction(
-                            label='回傳訊息',
-                            data='action=sell&item=飲料'
-                        )
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendPizza(event):
-    try:
-        message = TextSendMessage(
-            text = '感謝您購買披薩，我們將盡快為您製作。'
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
 def sendYes(event):
     try:
         message = TextSendMessage(
@@ -180,51 +104,6 @@ def sendNo(event):
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))	
 
-def sendBack_buy(event, backdata):  #處理Postback
-    try:
-        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
-        message = TextSendMessage(  #傳送文字
-            text = text1
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-
-def sendImgmap(event):  #圖片地圖
-    try:
-        image_url = 'https://i.imgur.com/Yz2yzve.jpg'  #圖片位址
-        imgwidth = 1040  #原始圖片寛度一定要1040
-        imgheight = 300
-        message = ImagemapSendMessage(
-            base_url=image_url,
-            alt_text="圖片地圖範例",
-            base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
-            actions=[
-                MessageImagemapAction(  #顯示文字訊息
-                    text='你點選了紅色區塊！',
-                    area=ImagemapArea(  #設定圖片範圍:左方1/4區域
-                        x=0, 
-                        y=0, 
-                        width=imgwidth*0.25, 
-                        height=imgheight  
-                    )
-                ),
-                URIImagemapAction(  #開啟網頁
-                    link_uri='http://www.e-happy.com.tw',
-                    area=ImagemapArea(  #右方1/4區域(藍色1)
-                        x=imgwidth*0.75, 
-                        y=0, 
-                        width=imgwidth*0.25, 
-                        height=imgheight  
-                    )
-                ),
-            ]
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendVedio(event):  #傳送影像
     try:
@@ -235,8 +114,6 @@ def sendVedio(event):  #傳送影像
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-
 
 def sendPosition(event):  #位置資訊
     try:
@@ -256,7 +133,7 @@ def sendPosition(event):  #位置資訊
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendContact(event):  #聯絡我們
+def sendContact(event):  #聯絡方式
     try:
         message = TemplateSendMessage(
             alt_text = "聯絡方式",
@@ -305,34 +182,6 @@ def sendQuickreply(event):  #快速選單
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
         
-def sendMulti2(event):  #多項傳送
-    try:
-        message = [  #串列
-
-            TextSendMessage(  #傳送y文字
-                text = "何謂洗錢？"
-            ),
-            ImageSendMessage(  #傳送圖片
-                original_content_url ="https://img.itw01.com/images/2018/03/05/20/4828_rb0nUb_C75LEGQ.jpeg!r800x0.jpg",
-                preview_image_url = "https://img.itw01.com/images/2018/03/05/20/4828_rb0nUb_C75LEGQ.jpeg!r800x0.jpg"
-            ),
-
-	   TextSendMessage(  #傳送y文字
-                text = "洗錢:\n將其不法行為活動獲得的資金或財產，透過各種交易管道掩飾或隱匿， 轉換成為合法的資金或財產。"
-            ),
-	   TextSendMessage(  #傳送y文字
-                text = "洗錢的架構:1.特定罪犯行為 2.取得不法利益 3.洗清黑錢"
-            ),
-
-
-            TextSendMessage(  #傳送y文字
-                text ="https://www.youtube.com/watch?v=F-ESYoE0w0k"
-	    ),
-
-        ]
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendButton3(event):  #按鈕樣版
     try:
@@ -366,39 +215,6 @@ def sendButton3(event):  #按鈕樣版
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendButton(event):  #按鈕樣版
-    try:
-        message = TemplateSendMessage(
-            alt_text='網站連結',
-            template=ButtonsTemplate(
-                thumbnail_image_url='https://img.onl/vEgwNh',  #顯示的圖片
-                title='企業資訊整合分析',  #主標題
-                text='相關網站：',  #副標題
-                actions=[
-                URITemplateAction(
-                        label='財報狗',
-                        uri='https://statementdog.com/'
-                    ),
-                URITemplateAction(
-                        label='台灣公司網',
-                        uri='https://www.twincn.com/'
-                    ),
-		URITemplateAction(
-                        label='台灣經濟研究院',
-                        uri='https://www.tier.org.tw/index.aspx'
-                    ),
-		URITemplateAction(
-                        label='股市talk',
-                        uri='https://stock.cnyes.com/market/TWS:TSE01:INDEX'
-                    ),
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-
 
 
 def sendButtonb_out(event):  #按鈕樣版
@@ -420,9 +236,7 @@ def sendButtonb_out(event):  #按鈕樣版
                     ),
                      MessageTemplateAction( 
                         label='艾格蒙聯盟',
-                        text='https://egmontgroup.org/en'
-                  
-
+                        text='https://egmontgroup.org/en'                
                     ),
                 ]
             )
@@ -450,9 +264,7 @@ def sendButtonb_in(event):  #按鈕樣版
                     ),
                      MessageTemplateAction( 
                         label='金管會',
-                        text='https://www.fsc.gov.tw/ch/index.jsp'
-                  
-
+                        text='https://www.fsc.gov.tw/ch/index.jsp'                 
                     ),
                 ]
             )
@@ -464,7 +276,7 @@ def sendButtonb_in(event):  #按鈕樣版
 def sendCarousel(event):  #轉盤樣板
     try:
         message = TemplateSendMessage(
-            alt_text='其他',
+            alt_text='財經新聞',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
