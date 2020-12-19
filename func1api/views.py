@@ -58,7 +58,7 @@ def callback(request):
                    elif mtext == '@快速選單':
                         func.sendQuickreply(event)
               
-                   elif mtext == '@按鈕樣板':
+                   elif mtext == '@網站連結':
                         func.sendButton(event)
     
                    elif mtext == '@確認樣板':
