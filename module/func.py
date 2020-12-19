@@ -35,35 +35,6 @@ def sendPosition(event):  #傳送位置
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendButton(event):  #按鈕樣板
-    try:
-        message = TemplateSendMessage(
-            alt_text='網站連結',
-            template=ButtonsTemplate(
-                    thumbnail_image_url  ='https://img.onl/vEgwNh' ,
-                    title  =  '企業資訊整合分析' ,
-                    text  =  '相關網站' ,
-            actions=[
-                    MessageTemplateAction(  #顯示文字計息
-                        label='財報狗',
-                        text='https://statementdog.com/'
-                    ),
-                    URITemplateAction(  #開啟網頁
-                        label  =  'Yahoo股市' ,
-                        uri  =  'https://tw.stock.yahoo.com/'
-                    ),
-                    PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
-                        label='回傳訊息',  #按鈕文字
-                        #text='@購買披薩',  #顯示文字計息
-                        data='action=buy'  #Postback資料
-                    ),
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
 def sendConfirm(event):  #確認樣板
     try:
         message = TemplateSendMessage(
@@ -104,18 +75,7 @@ def sendNo(event):
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))	
 
-
-def sendVedio(event):  #傳送影像
-    try:
-        message = VideoSendMessage(
-            original_content_url=baseurl + 'robot.mp4',  #影片檔置於static資料夾
-            preview_image_url=baseurl + 'robot.jpg'
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendPosition(event):  #位置資訊
+def sendPosition1(event):  #位置資訊
     try:
         text1 = "333桃園市龜山區德明路5號"
         message = [
@@ -186,7 +146,7 @@ def sendQuickreply(event):  #快速選單
 def sendButton3(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='重要資訊',
+            alt_text='網站連結',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
                 title=' ',  #主標題
@@ -215,16 +175,14 @@ def sendButton3(event):  #按鈕樣版
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-
-
 def sendButtonb_out(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='防制洗錢小知識',
+            alt_text='國外相關組織連結',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://cnews.com.tw/wp-content/uploads/%E5%8F%B0%E7%81%A3%E5%8F%8D%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E3%80%8C%E8%90%BD%E5%BE%8C%E3%80%8D-%E9%87%91%E7%AE%A1%E6%9C%83%E7%A0%94%E8%AD%B0%E7%9B%B8%E9%97%9C%E6%8E%AA%E6%96%BD.jpg',  #顯示的圖片
-                title=' ',  #主標題
-                text='國外相關組織：',  #副標題
+                title='國外相關組織',  #主標題
+                text='連結：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
                         label='FATF',
@@ -248,11 +206,11 @@ def sendButtonb_out(event):  #按鈕樣版
 def sendButtonb_in(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='防制洗錢小知識',
+            alt_text='國內相關組織連結',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://cnews.com.tw/wp-content/uploads/%E5%8F%B0%E7%81%A3%E5%8F%8D%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E3%80%8C%E8%90%BD%E5%BE%8C%E3%80%8D-%E9%87%91%E7%AE%A1%E6%9C%83%E7%A0%94%E8%AD%B0%E7%9B%B8%E9%97%9C%E6%8E%AA%E6%96%BD.jpg',  #顯示的圖片
-                title=' ',  #主標題
-                text='國內相關組織：',  #副標題
+                title='國內相關組織',  #主標題
+                text='連結：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
                         label='行政院防制洗錢辦公室',
