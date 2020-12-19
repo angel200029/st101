@@ -17,7 +17,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def sendText(event):  #傳送文字
     try:
         message = TextSendMessage(  
-            text = "您好！\n我是企業資訊整合分析，很高興為您服務!\n下方選單都可點選唷!"
+            text = "您好，我是企業資訊整合分析！\n很高興為您服務!☺\n歡迎點選下方選單了解更多詳情!"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
@@ -98,22 +98,22 @@ def sendQuickreplya(event):  #快速選單
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-def sendButton4(event):  #按鈕樣版
+def sendButton4(event):  #按鈕樣板
     try:
         message = TemplateSendMessage(
-            alt_text='按鈕樣板',
+            alt_text='網站連結',
             template=ButtonsTemplate(
-                    thumbnail_image_url  ='https://i.imgur.com/ZGaXkKd.jpg' ,
-                    title  =  'demo' ,
-                    text  =  'pizza demo' ,
+                    thumbnail_image_url  ='https://img.onl/vEgwNh' ,
+                    title  =  '企業資訊整合分析' ,
+                    text  =  '相關網站' ,
             actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='文字訊息',
-                        text='@購買披薩'
+                        label='財報狗',
+                        text='https://statementdog.com/'
                     ),
                     URITemplateAction(  #開啟網頁
-                        label  =  'website mcu' ,
-                        uri  =  'https://web.mcu.edu.tw/'
+                        label  =  'Yahoo股市' ,
+                        uri  =  'https://tw.stock.yahoo.com/'
                     ),
                     PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
                         label='回傳訊息',  #按鈕文字
