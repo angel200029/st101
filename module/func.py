@@ -708,15 +708,27 @@ def sendButton3(event):  #按鈕樣版
             template=ButtonsTemplate(
                 thumbnail_image_url='https://evernote.com/blog/wp-content/uploads/2016/08/Facebook_LinkImage_1200x627-copy-1-300x300.png',  #顯示的圖片
                 title=' ',  #主標題
-                text='查詢特定人士：',  #副標題
+                text='相關網站：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='查詢董監事',
-                        text='https://reurl.cc/AqXVEe'
+                        label='"財報狗',
+                        text='https://statementdog.com/'
                     ),
                     MessageTemplateAction( 
-                        label='查詢公司',
-                        text='https://reurl.cc/AqXVEe'
+                        label='Yahoo股市',
+                        text='https://tw.stock.yahoo.com/'
+                    ),
+		    MessageTemplateAction( 
+                        label='台灣公司網',
+                        text='https://www.twincn.com/'
+                    ),
+		    MessageTemplateAction( 
+                        label='台灣經濟研究院',
+                        text='https://www.tier.org.tw/index.aspx'
+                    ),
+		   MessageTemplateAction( 
+                        label='股市talk',
+                        text='https://stock.cnyes.com/market/TWS:TSE01:INDEX'
                     ),
                 ]
             )
