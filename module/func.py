@@ -17,7 +17,10 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def sendText(event):  #傳送文字
     try:
         message = TextSendMessage(  
-            text = "您好，我是企業資訊整合分析！\n很高興為您服務!☺\n歡迎點選下方選單了解更多詳情!"
+            text="您好，我是企業資訊整合分析！\n很高興為您服務!☺
+	    text="以下是我們提供的服務項目："
+	    text="@網站連結\n@國內相關組織\n@國外相關組織\n@辨別洗錢小知識"
+	    text="歡迎點選下方選單了解更多詳情!"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
@@ -125,56 +128,6 @@ def sendConfirm(event):  #確認樣板
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendCarousel3(event):  #轉盤樣板
-    try:
-        message = TemplateSendMessage(
-            alt_text='財經資訊',
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',
-                        title='這是樣板一',
-                        text='第一個轉盤樣板',
-                        actions=[
-                            MessageTemplateAction(
-                                label='文字訊息一',
-                                text='賣披薩'
-                            ),
-                            URITemplateAction(
-                                label='連結文淵閣網頁',
-                                uri='http://www.e-happy.com.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息一',
-                                data='action=sell&item=披薩'
-                            ),
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/qaAdBkR.png',
-                        title='這是樣板二',
-                        text='第二個轉盤樣板',
-                        actions=[
-                            MessageTemplateAction(
-                                label='文字訊息二',
-                                text='賣飲料'
-                            ),
-                            URITemplateAction(
-                                label='連結台大網頁',
-                                uri='http://www.ntu.edu.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息二',
-                                data='action=sell&item=飲料'
-                            ),
-                        ]
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendImgCarousel2(event):  #圖片轉盤
     try:
@@ -215,11 +168,20 @@ def sendPizza(event):
 def sendYes(event):
     try:
         message = TextSendMessage(
-            text='感謝您的購買，\n我們將盡快寄出商品。',
+            text='感謝您的喜歡，\n我們必將提供更好服務。♥',
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+	
+def sendNo(event):
+    try:
+        message = TextSendMessage(
+            text='感謝您的回饋，\n我們必定努力改善！',
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))	
 
 def sendBack_buy(event, backdata):  #處理Postback
     try:
@@ -227,15 +189,6 @@ def sendBack_buy(event, backdata):  #處理Postback
         text1 += '\n(可將處理程式寫在此處。)'
         message = TextSendMessage(  #傳送文字
             text = text1
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-def sendBack_sell(event, backdata):  #處理Postback
-    try:
-        message = TextSendMessage(  #傳送文字
-            text = '點選的是賣 ' + backdata.get('item')
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
@@ -290,16 +243,16 @@ def sendVedio(event):  #傳送影像
 
 def sendPosition(event):  #位置資訊
     try:
-        text1 = "地址：南投縣埔里鎮信義路85號"
+        text1 = "333桃園市龜山區德明路5號"
         message = [
             TextSendMessage(  #顯示地址
                 text = text1
             ),
             LocationSendMessage(  #顯示地圖
-                title = "宜居旅舍",
+                title = "銘傳大學 經濟與金融學系",
                 address = text1,
-                latitude = 23.97381,
-                longitude = 120.977198
+                latitude = 24.98606112215958,
+                longitude = 121.34118714180775
             ),
         ]
         line_bot_api.reply_message(event.reply_token,message)
@@ -309,13 +262,15 @@ def sendPosition(event):  #位置資訊
 def sendContact(event):  #聯絡我們
     try:
         message = TemplateSendMessage(
-            alt_text = "聯絡我們",
+            alt_text = "聯絡方式",
             template = ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/tVjKzPH.jpg',
-                title='聯絡我們',
-                text='打電話給我們',
+                thumbnail_image_url='E6%91%B3%E7%9F%A2%E9%87%8Fhttps://images.app.goo.gl/zBW6GUcLBVZq4vD5A',
+                title='聯絡方式',
+                text='有任何問題歡迎詢問',
                 actions=[
-                    URITemplateAction(label='撥打電話', uri='tel:0123456789')  #開啟打電話功能
+                    URITemplateAction(label='台北校區', uri='tel:0228824564')  #開啟打電話功能   
+		    URITemplateAction(label='桃園校區', uri='tel:033507001') 
+		URITemplateAction(label='基河校區', uri='tel:0228824564') 
                 ]
             )
         )
@@ -327,14 +282,20 @@ def sendContact(event):  #聯絡我們
 def sendQuickreply(event):  #快速選單
     try:
         message = TextSendMessage(
-            text='請選擇想要查詢的國內相關組織',
+            text='請選擇想了解的法律資訊',
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=MessageAction(label="行政院防制洗錢辦公室", text="https://www.amlo.moj.gov.tw/")
+                        action=MessageAction(label="金融法規", text="https://law.banking.gov.tw/Chi/default.aspx")
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="法務部調查局洗錢防制處", text="https://www.mjib.gov.tw/mlpc")
+                        action=MessageAction(label="民法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=B0000001")
+                    ),
+			QuickReplyButton(
+                        action=MessageAction(label="刑事訴訟法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0010001")
+                    ),
+			 QuickReplyButton(
+                        action=MessageAction(label="中華民國刑法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0000001")
                     ),
                     QuickReplyButton(
                         action=MessageAction(label="金管會", text="https://www.fsc.gov.tw/ch/index.jsp")
@@ -352,7 +313,7 @@ def sendMulti2(event):  #多項傳送
         message = [  #串列
 
             TextSendMessage(  #傳送y文字
-                text = "何謂洗錢??"
+                text = "何謂洗錢？"
             ),
             ImageSendMessage(  #傳送圖片
                 original_content_url ="https://img.itw01.com/images/2018/03/05/20/4828_rb0nUb_C75LEGQ.jpeg!r800x0.jpg",
@@ -443,7 +404,7 @@ def sendButton(event):  #按鈕樣版
 
 
 
-def sendButtonb(event):  #按鈕樣版
+def sendButtonb_out(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
             alt_text='防制洗錢小知識',
@@ -473,8 +434,36 @@ def sendButtonb(event):  #按鈕樣版
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 	
+def sendButtonb_in(event):  #按鈕樣版
+    try:
+        message = TemplateSendMessage(
+            alt_text='防制洗錢小知識',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://cnews.com.tw/wp-content/uploads/%E5%8F%B0%E7%81%A3%E5%8F%8D%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E3%80%8C%E8%90%BD%E5%BE%8C%E3%80%8D-%E9%87%91%E7%AE%A1%E6%9C%83%E7%A0%94%E8%AD%B0%E7%9B%B8%E9%97%9C%E6%8E%AA%E6%96%BD.jpg',  #顯示的圖片
+                title=' ',  #主標題
+                text='國內相關組織：',  #副標題
+                actions=[
+                    MessageTemplateAction(  #顯示文字計息
+                        label='行政院防制洗錢辦公室',
+                        text='https://www.amlo.moj.gov.tw/'
+                    ),
+                    MessageTemplateAction( 
+                        label='法務部調查局洗錢防制處',
+                        text='https://www.mjib.gov.tw/mlpc'
+                    ),
+                     MessageTemplateAction( 
+                        label='金管會',
+                        text='https://www.fsc.gov.tw/ch/index.jsp'
+                  
 
-  
+                    ),
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+	  
 def sendCarousel(event):  #轉盤樣板
     try:
         message = TemplateSendMessage(
@@ -483,8 +472,8 @@ def sendCarousel(event):  #轉盤樣板
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4NQBoplbhOoo3bc_Zgj37mraOw88ddrWP7LTZfpfnY7FcDr5m&usqp=CAU',
-                        title=' ',
-                        text='其他資訊',
+                        title='財經新聞',
+                        text='國內外即時新聞統整',
                         actions=[
                             URITemplateAction(
                                 label='洗錢防制之最終受益人查詢',
