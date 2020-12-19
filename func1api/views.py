@@ -35,7 +35,7 @@ def callback(request):
                    mtext = event.message.text
                 
                    
-                   if   mtext == '@傳送文字':
+                   if   mtext == '@功能介紹':
                         func.sendText(event)
                    elif mtext == '@國內相關組織':
                         func.sendQuickreply(event) 
@@ -55,13 +55,13 @@ def callback(request):
                    elif mtext == '@傳送位置':
                         func.sendPosition(event)
     
-                   elif mtext == '@快速選單':
+                   elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
                    elif mtext == '@網站連結':
                         func.sendButton(event)
     
-                   elif mtext == '@確認樣板':
+                   elif mtext == '@系統回饋':
                         func.sendConfirm(event)
     
                    elif mtext == '@財經新聞':
@@ -70,11 +70,11 @@ def callback(request):
                    elif mtext == '@圖片轉盤':
                         func.sendImgCarousel(event)
     
-                   elif mtext == '@購買披薩':
-                        func.sendPizza(event)
-    
-                   elif mtext == '@yes':
+                   elif mtext == '@Yes':
                         func.sendYes(event)
+                   elif mtext == '@No':
+                        func.send(event)
+                
                    elif mtext == '@圖片地圖':
                         func.sendImgmap(event)
                    
@@ -84,14 +84,11 @@ def callback(request):
                    elif mtext == '@位置資訊':
                         func.sendPosition(event)
 
-                   elif mtext == '@聯絡我們':
+                   elif mtext == '@聯絡方式':
                         func.sendContact(event)
                    elif mtext == '@辨別洗錢小知識':
                         func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
-       
-                   elif mtext == '@法律資訊':
-                        func.sendImage(event)
-                
+                  
                    elif mtext == '@重要資訊':
                         func.sendButton(event)
     
@@ -99,9 +96,12 @@ def callback(request):
                         func.sendQuickreply(event) 
                 
                    elif mtext == '@國外相關組織':
-                        func.sendButtonb(event)
+                        func.sendButtonb_out(event)
+                        
+                   elif mtext == '@國內相關組織':
+                        func.sendButtonb_in(event)
     
-                   elif mtext == '@其他資訊':
+                   elif mtext == '@洗錢防治資訊':
                         func.sendCarousel(event)
 
                    elif mtext[:3] == '###' and len(mtext) > 3:  #處理LIFF傳回的FORM資料
