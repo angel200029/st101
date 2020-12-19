@@ -64,7 +64,7 @@ def callback(request):
                    elif mtext == '@確認樣板':
                         func.sendConfirm(event)
     
-                   elif mtext == '@轉盤樣板':
+                   elif mtext == '@財經新聞':
                         func.sendCarousel(event)
     
                    elif mtext == '@圖片轉盤':
@@ -77,24 +77,7 @@ def callback(request):
                         func.sendYes(event)
                    elif mtext == '@圖片地圖':
                         func.sendImgmap(event)
-                   elif mtext == '@日期時間':
-                        func.sendDatetime(event)
-                        
-                        
-                   elif mtext == '@彈性配置':
-                        func.sendFlex(event)   
-                                               
-                   elif mtext[:3] == '###' and len(mtext) > 3:
-                        func.manageForm(event, mtext, user_id)
-                   elif mtext == '@使用說明':
-                        func.sendUse(event)
-
-                   elif mtext == '@房間預約':
-                        func.sendBooking(event, user_id)
-
-                   elif mtext == '@取消訂房':
-                        func.sendCancel(event, user_id)
-
+                   
                    elif mtext == '@關於我們':
                         func.sendAbout(event)
 
