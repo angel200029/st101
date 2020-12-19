@@ -714,10 +714,6 @@ def sendButton3(event):  #按鈕樣版
                         label='"財報狗',
                         text='https://statementdog.com/'
                     ),
-                    MessageTemplateAction( 
-                        label='Yahoo股市',
-                        text='https://tw.stock.yahoo.com/'
-                    ),
 		    MessageTemplateAction( 
                         label='台灣公司網',
                         text='https://www.twincn.com/'
@@ -740,20 +736,27 @@ def sendButton3(event):  #按鈕樣版
 def sendButton(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='洗錢小知識',
+            alt_text='網站連結',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTAbBLFzkUIGJndS970UI6i0B2jfTDs6Uy1AtyVMtMDuHwPWlWV&usqp=CAU',  #顯示的圖片
-                title=' ',  #主標題
-                text='查詢特定人士：',  #副標題
+                thumbnail_image_url='https://img.onl/vEgwNh',  #顯示的圖片
+                title='企業資訊整合分析',  #主標題
+                text='相關網站：',  #副標題
                 actions=[
                 URITemplateAction(
-                        label='查詢公司名',
-                        uri='https://reurl.cc/AqXVEe'
+                        label='財報狗',
+                        uri='https://statementdog.com/'
                     ),
                 URITemplateAction(
-                        label='查詢董監事',
-                        uri='https://reurl.cc/AqXVEe'
-
+                        label='台灣公司網',
+                        uri='https://www.twincn.com/'
+                    ),
+		URITemplateAction(
+                        label='台灣經濟研究院',
+                        uri='https://www.tier.org.tw/index.aspx'
+                    ),
+		URITemplateAction(
+                        label='股市talk',
+                        uri='https://stock.cnyes.com/market/TWS:TSE01:INDEX'
                     ),
                 ]
             )
