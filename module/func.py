@@ -17,7 +17,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def sendText(event):  #傳送文字
     try:
         message = TextSendMessage(  
-            text = "我是 Linebot，\n您好！"
+            text = "您好，我是企業資訊整合分析！\n很高興為您服務!☺\n以下是我們提供的服務項目：\n@網站連結\n@國內相關組織\n@國外相關組織\n@辨別洗錢小知識\n歡迎點選下方選單了解更多詳情!"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
