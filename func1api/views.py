@@ -35,48 +35,92 @@ def callback(request):
                    mtext = event.message.text
                 
                    
-                   if   mtext == '@功能介紹':
+                   if   mtext == '@傳送文字':
                         func.sendText(event)
-                   
+                   elif mtext == '@國內相關組織':
+                        func.sendQuickreply(event) 
+                   elif mtext == '@傳送圖片':
+                        func.sendImage(event)
+                   elif mtext == '@傳送聲音':
+                        func.sendVoice(event)
+    
+                   elif mtext == '@傳送影片':
+                        func.sendVedio(event)
+                   elif mtext == '@傳送貼圖':
+                        func.sendStick(event)
+    
+                   elif mtext == '@多項傳送':
+                        func.sendMulti(event)
+    
                    elif mtext == '@傳送位置':
                         func.sendPosition(event)
     
-                   elif mtext == '@法律資訊':
+                   elif mtext == '@快速選單':
                         func.sendQuickreply(event)
-                
-                   elif mtext == '@國外相關組織':
-                        func.sendButtonb_out(event)
-                        
-                   elif mtext == '@國內相關組織':
-                        func.sendButtonb_in(event)
-                        
-                   elif mtext == '@財經新聞':
-                        func.sendCarousel(event)
+              
+                   elif mtext == '@按鈕樣板':
+                        func.sendButton(event)
     
-                   elif mtext == '@系統回饋':
+                   elif mtext == '@確認樣板':
                         func.sendConfirm(event)
     
-                   elif mtext == '@Yes':
+                   elif mtext == '@轉盤樣板':
+                        func.sendCarousel(event)
+    
+                   elif mtext == '@圖片轉盤':
+                        func.sendImgCarousel(event)
+    
+                   elif mtext == '@購買披薩':
+                        func.sendPizza(event)
+    
+                   elif mtext == '@yes':
                         func.sendYes(event)
-                
-                   elif mtext == '@No':
-                        func.sendNo(event)
-               
-                   elif mtext == '@位置資訊':
-                        func.sendPosition1(event)
+                   elif mtext == '@圖片地圖':
+                        func.sendImgmap(event)
+                   elif mtext == '@日期時間':
+                        func.sendDatetime(event)
+                        
+                        
+                   elif mtext == '@彈性配置':
+                        func.sendFlex(event)   
+                                               
+                   elif mtext[:3] == '###' and len(mtext) > 3:
+                        func.manageForm(event, mtext, user_id)
+                   elif mtext == '@使用說明':
+                        func.sendUse(event)
 
-                   elif mtext == '@聯絡方式':
+                   elif mtext == '@房間預約':
+                        func.sendBooking(event, user_id)
+
+                   elif mtext == '@取消訂房':
+                        func.sendCancel(event, user_id)
+
+                   elif mtext == '@關於我們':
+                        func.sendAbout(event)
+
+                   elif mtext == '@位置資訊':
+                        func.sendPosition(event)
+
+                   elif mtext == '@聯絡我們':
                         func.sendContact(event)
-                        
+                   elif mtext == '@辨別洗錢小知識':
+                        func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
+       
                    elif mtext == '@法律資訊':
-                        func.sendQuickreply(event)
-                        
-                   elif mtext == '@網站連結':
-                        func.sendButton3(event) 
-                        
-                   elif mtext == '@何謂洗錢':
-                        fun.sendMulti2(event)
-                        
+                        func.sendImage(event)
+                
+                   elif mtext == '@重要資訊':
+                        func.sendButton(event)
+    
+                   elif mtext == '@國內相關組織':
+                        func.sendQuickreply(event) 
+                
+                   elif mtext == '@國外相關組織':
+                        func.sendButtonb(event)
+    
+                   elif mtext == '@其他資訊':
+                        func.sendCarousel(event)
+
                    elif mtext[:3] == '###' and len(mtext) > 3:  #處理LIFF傳回的FORM資料
                         func.manageForm(event, mtext, user_id)
 
