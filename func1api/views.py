@@ -106,7 +106,7 @@ def callback(request):
                    elif mtext == '@辨別洗錢小知識':
                         func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
        
-                   elif mtext == '@法律資訊':
+                   elif mtext == '@圖片':
                         func.sendImage(event)
                 
                    elif mtext == '@重要資訊':
