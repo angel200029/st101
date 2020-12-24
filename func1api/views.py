@@ -39,7 +39,7 @@ def callback(request):
                         func.sendText(event)
                    elif mtext == '@國內相關組織':
                         func.sendQuickreply(event) 
-                   elif mtext == '@傳送圖片':
+                   elif mtext == '@晶晶茶鋪':
                         func.sendImage(event)
                    elif mtext == '@傳送聲音':
                         func.sendVoice(event)
