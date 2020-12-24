@@ -125,9 +125,9 @@ def sendButton4(event):  #按鈕樣版
 def sendConfirm(event):  #確認樣板
     try:
         message = TemplateSendMessage(
-            alt_text='確認樣板',
+            alt_text='系統整體滿意度調查',
             template=ConfirmTemplate(
-                text='你確定要購買這項商品嗎？',
+                text='請問您是否滿意我們的系統呢？',
                 actions=[
                     MessageTemplateAction(  #按鈕選項
                         label='是',
@@ -234,7 +234,15 @@ def sendPizza(event):
 def sendYes(event):
     try:
         message = TextSendMessage(
-            text='感謝您的購買，\n我們將盡快寄出商品。',
+            text='感謝您的喜歡，\n我們必將提供更好服務。♥',
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendNo(event):
+    try:
+        message = TextSendMessage(
+            text='感謝您的回饋，\n我們必定努力改善！',
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
