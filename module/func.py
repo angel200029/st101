@@ -570,16 +570,16 @@ def sendAbout(event):  #關於我們
 
 def sendPosition(event):  #位置資訊
     try:
-        text1 = "地址：南投縣埔里鎮信義路85號"
+        text1 = "地址：333桃園市龜山區德明路5號"
         message = [
             TextSendMessage(  #顯示地址
                 text = text1
             ),
             LocationSendMessage(  #顯示地圖
-                title = "宜居旅舍",
+                title = "銘傳大學 經濟與金融學系",
                 address = text1,
-                latitude = 23.97381,
-                longitude = 120.977198
+                latitude = 24.98606112215958,
+                longitude = 121.34118714180775
             ),
         ]
         line_bot_api.reply_message(event.reply_token,message)
