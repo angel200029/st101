@@ -101,26 +101,21 @@ def sendQuickreplya(event):  #快速選單
 def sendButton4(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='按鈕樣板',
+            alt_text='系統整體滿意度調查',
             template=ButtonsTemplate(
                     thumbnail_image_url  ='https://i.imgur.com/ZGaXkKd.jpg' ,
-                    title  =  'demo' ,
-                    text  =  'pizza demo' ,
+                    title  =  '系統整體滿意度回饋' ,
+                    text  =  '請問您是否滿意我們的系統呢？' ,
             actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='文字訊息',
-                        text='@購買披薩'
+                        label='是',
+                        text='@Yes'
                     ),
-                    URITemplateAction(  #開啟網頁
-                        label  =  'website mcu' ,
-                        uri  =  'https://web.mcu.edu.tw/'
+		    MessageTemplateAction(  #顯示文字計息
+                        label='否',
+                        text='@NO'
                     ),
-                    PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
-                        label='回傳訊息',  #按鈕文字
-                        #text='@購買披薩',  #顯示文字計息
-                        data='action=buy'  #Postback資料
-                    ),
-                ]
+                    ]
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
