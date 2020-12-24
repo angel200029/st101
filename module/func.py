@@ -231,7 +231,7 @@ def sendPizza(event):
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendYes(event):
+def sendyes(event):
     try:
         message = TextSendMessage(
             text='感謝您的喜歡，\n我們必將提供更好服務。',
