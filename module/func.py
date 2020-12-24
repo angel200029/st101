@@ -23,6 +23,16 @@ def sendText(event):  #傳送文字
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
+def sendText(event):  #製作團隊
+    try:
+        message = TextSendMessage(  
+            text = "製作團隊"
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+
+
 def sendImage(event):  #圖片
     try:
         message = ImageSendMessage(
