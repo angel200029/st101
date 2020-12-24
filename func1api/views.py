@@ -59,10 +59,10 @@ def callback(request):
                    elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
-                   elif mtext == '@系統整體滿意度調查':
+                   elif mtext == '按鈕樣版':
                         func.sendButton(event)
     
-                   elif mtext == '@確認樣板':
+                   elif mtext == '@系統整體滿意度調查':
                         func.sendConfirm(event)
     
                    elif mtext == '@轉盤樣板':
@@ -76,6 +76,8 @@ def callback(request):
     
                    elif mtext == '@yes':
                         func.sendYes(event)
+                   elif mtext == '@no':
+                        func.sendNo(event)
                    elif mtext == '@圖片地圖':
                         func.sendImgmap(event)
                    elif mtext == '@日期時間':
