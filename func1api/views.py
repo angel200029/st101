@@ -40,6 +40,8 @@ def callback(request):
                         func.sendText(event)
                    elif mtext == '@製作團隊':
                          func.sendText(event)
+                   elif mtext == '@特別感謝':
+                         func.sendText(event)
                    elif mtext == '@國內相關組織':
                         func.sendQuickreply(event) 
                    elif mtext == '@晶晶茶鋪':
