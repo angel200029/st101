@@ -38,6 +38,8 @@ def callback(request):
                    
                    if   mtext == '@功能介紹':
                         func.sendText(event)
+                   elif mtext == '@製作團隊':
+                         func.sendText(event)
                    elif mtext == '@國內相關組織':
                         func.sendQuickreply(event) 
                    elif mtext == '@晶晶茶鋪':
@@ -59,7 +61,7 @@ def callback(request):
                    elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
-                   elif mtext == '按鈕樣版':
+                   elif mtext == '@按鈕樣版':
                         func.sendButton(event)
     
                    elif mtext == '@系統整體滿意度調查':
