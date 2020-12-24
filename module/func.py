@@ -681,16 +681,15 @@ def sendQuickreply(event):  #快速選單
                     QuickReplyButton(
                         action=MessageAction(label="金融法規", text="https://law.banking.gov.tw/Chi/default.aspx")
                     ),
-                    QuickReplyButton(
-                        action=MessageAction(label="民法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=B0000001")
-                    ),
-                    QuickReplyButton(
+			QuickReplyButton(
                         action=MessageAction(label="刑事訴訟法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0010001")
-                    ),
-		QuickReplyButton(
+			 ),	
+                        QuickReplyButton(
                         action=MessageAction(label="公司法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080001")
                     ),
-
+			QuickReplyButton(
+                        action=MessageAction(label="民法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=B0000001")
+                    ),
                 ]
             )
         )
@@ -784,7 +783,7 @@ def sendButtonb(event):  #按鈕樣版
         message = TemplateSendMessage(
             alt_text='防制洗錢小知識',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://cnews.com.tw/wp-content/uploads/%E5%8F%B0%E7%81%A3%E5%8F%8D%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E3%80%8C%E8%90%BD%E5%BE%8C%E3%80%8D-%E9%87%91%E7%AE%A1%E6%9C%83%E7%A0%94%E8%AD%B0%E7%9B%B8%E9%97%9C%E6%8E%AA%E6%96%BD.jpg',  #顯示的圖片
+                thumbnail_image_url='https://img.onl/QK1G6j',  #顯示的圖片
                 title='企業資訊整合分析',  #主標題
                 text='之國外相關組織：',  #副標題
                 actions=[
