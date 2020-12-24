@@ -35,7 +35,7 @@ def callback(request):
                    mtext = event.message.text
                 
                    
-                   if   mtext == '@傳送文字':
+                   if   mtext == '@功能介紹':
                         func.sendText(event)
                    elif mtext == '@國內相關組織':
                         func.sendQuickreply(event) 
