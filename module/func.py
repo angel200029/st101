@@ -26,8 +26,8 @@ def sendText(event):  #傳送文字
 def sendImage(event):  #傳送圖片
     try:
         message = ImageSendMessage(
-            original_content_url = "https://drive.google.com/file/d/1cD0pDz217Wu6BFPPaNxVKw9xTsrF_bl9/view?usp=sharing",
-            preview_image_url = "https://drive.google.com/file/d/1cD0pDz217Wu6BFPPaNxVKw9xTsrF_bl9/view?usp=sharing"
+            original_content_url = "https://img.onl/OqQCRe",
+            preview_image_url = "https://img.onl/OqQCRe"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
@@ -586,16 +586,18 @@ def sendPosition(event):  #位置資訊
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendContact(event):  #聯絡我們
+def sendContact(event):  #聯絡資訊
     try:
         message = TemplateSendMessage(
-            alt_text = "聯絡我們",
+            alt_text = "聯絡資訊",
             template = ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/tVjKzPH.jpg',
-                title='聯絡我們',
-                text='打電話給我們',
+                thumbnail_image_url='https://img.onl/QK1G6j',
+                title='聯絡資訊',
+                text='若有疑問歡迎撥打客服專線',
                 actions=[
-                    URITemplateAction(label='撥打電話', uri='tel:0123456789')  #開啟打電話功能
+                    URITemplateAction(label='台北校區', uri='tel:0228824564')  #開啟打電話功能
+		URITemplateAction(label='桃園校區', uri='tel:033507001')  #開啟打電話功能
+			URITemplateAction(label='基河校區', uri='tel:0228824564')  #開啟打電話功能
                 ]
             )
         )
