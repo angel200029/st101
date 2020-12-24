@@ -55,7 +55,7 @@ def callback(request):
                    elif mtext == '@傳送位置':
                         func.sendPosition(event)
     
-                   elif mtext == '@快速選單':
+                   elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
                    elif mtext == '@按鈕樣板':
