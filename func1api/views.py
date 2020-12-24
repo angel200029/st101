@@ -101,7 +101,7 @@ def callback(request):
                    elif mtext == '@位置資訊':
                         func.sendPosition(event)
 
-                   elif mtext == '@聯絡我們':
+                   elif mtext == '@聯絡資訊':
                         func.sendContact(event)
                    elif mtext == '@辨別洗錢小知識':
                         func.sendMulti2(event)  # func.sendMulti2-->INSERT  2
