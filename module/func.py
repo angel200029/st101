@@ -23,7 +23,7 @@ def sendText(event):  #傳送文字
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendImage(event):  #傳送圖片
+def sendImage(event):  #圖片
     try:
         message = ImageSendMessage(
             original_content_url = "https://img.onl/OqQCRe",
@@ -595,7 +595,7 @@ def sendContact(event):  #聯絡資訊
                 title='聯絡資訊',
                 text='若有疑問歡迎撥打客服專線',
                 actions=[
-			URITemplateAction(label='桃園校區', uri='tel:033507001')  #開啟打電話功能
+			URITemplateAction(label='銘傳大學（桃園校區）經濟與金融學系', uri='tel:033507001')  #開啟打電話功能
 		]
             )
         )
@@ -652,17 +652,20 @@ def pushMessage(event, mtext):  ##推播訊息給所有顧客
 def sendQuickreply(event):  #快速選單
     try:
         message = TextSendMessage(
-            text='請選擇想要查詢的國內相關組織',
+            text='請選擇請選擇欲了解相關法律',
             quick_reply=QuickReply(
                 items=[
                     QuickReplyButton(
-                        action=MessageAction(label="行政院防制洗錢辦公室", text="https://www.amlo.moj.gov.tw/")
+                        action=MessageAction(label="金融法規", text="https://law.banking.gov.tw/Chi/default.aspx")
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="法務部調查局洗錢防制處", text="https://www.mjib.gov.tw/mlpc")
+                        action=MessageAction(label="民法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=B0000001")
                     ),
                     QuickReplyButton(
-                        action=MessageAction(label="金管會", text="https://www.fsc.gov.tw/ch/index.jsp")
+                        action=MessageAction(label="刑事訴訟法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=C0010001")
+                    ),
+		QuickReplyButton(
+                        action=MessageAction(label="公司法", text="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080001")
                     ),
 
                 ]
