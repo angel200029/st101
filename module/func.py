@@ -17,7 +17,7 @@ parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def sendText(event):  #傳送文字
     try:
         message = TextSendMessage(  
-            text = "您好，我是企業資訊整合分析！\n很高興為您服務!☺\n以下是我們提供的服務項目：\n@網站連結\n@國內相關組織\n@國外相關組織\n@辨別洗錢小知識\n歡迎點選下方選單了解更多詳情!"
+            text = "您好，我是企業資訊整合分析！\n很高興為您服務!☺\n以下是我們提供的服務項目：\n@功能介紹\n@位置資訊\n@聯絡資訊\n@法律資訊\n@國外相關組織\n@辨別洗錢小知識\n@系統整體滿意度調查\n\n歡迎點選下方選單了解更多詳情!"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
@@ -26,11 +26,21 @@ def sendText(event):  #傳送文字
 def sendText(event):  #製作團隊
     try:
         message = TextSendMessage(  
-            text = "製作團隊"
+            text = "109學年度第一學期\n金融科技工作坊(一)A組\n組長：華倩"
         )
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+	
+def sendText(event):  #特別感謝
+    try:
+        message = TextSendMessage(  
+            text = "於此特別感謝：\n圖書館資源\n網路資源\nYouTube\n經濟系王光賢主任\n班導師沈淑芬老師\n電通系學長們\n沒有你們就沒有這些成果\n我愛你們!!!"
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+	
 
 
 def sendImage(event):  #圖片
