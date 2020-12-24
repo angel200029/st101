@@ -75,9 +75,10 @@ def callback(request):
                         func.sendPizza(event)
     
                    elif mtext == '@yes':
-                        func.sendYes(event)
+                        func.sendyes(event)
                    elif mtext == '@no':
                         func.sendNo(event)
+                        
                    elif mtext == '@圖片地圖':
                         func.sendImgmap(event)
                    elif mtext == '@日期時間':
