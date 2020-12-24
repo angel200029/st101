@@ -234,7 +234,7 @@ def sendPizza(event):
 def sendYes(event):
     try:
         message = TextSendMessage(
-            text='感謝您的喜歡，\n我們必將提供更好服務。♥',
+            text='感謝您的喜歡，\n我們必將提供更好服務。',
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
