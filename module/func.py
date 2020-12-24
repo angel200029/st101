@@ -595,10 +595,8 @@ def sendContact(event):  #聯絡資訊
                 title='聯絡資訊',
                 text='若有疑問歡迎撥打客服專線',
                 actions=[
-                    URITemplateAction(label='台北校區', uri='tel:0228824564')  #開啟打電話功能
-		URITemplateAction(label='桃園校區', uri='tel:033507001')  #開啟打電話功能
-			URITemplateAction(label='基河校區', uri='tel:0228824564')  #開啟打電話功能
-                ]
+			URITemplateAction(label='桃園校區', uri='tel:033507001')  #開啟打電話功能
+		]
             )
         )
         line_bot_api.reply_message(event.reply_token,message)
