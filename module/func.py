@@ -23,7 +23,7 @@ def sendText(event):  #傳送文字
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendText(event):  #製作團隊
+def sendText1(event):  #製作團隊
     try:
         message = TextSendMessage(  
             text = "109學年度第一學期\n金融科技工作坊(一)A組\n組長：華倩"
@@ -32,7 +32,7 @@ def sendText(event):  #製作團隊
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 	
-def sendText(event):  #特別感謝
+def sendText2(event):  #特別感謝
     try:
         message = TextSendMessage(  
             text = "於此特別感謝：\n圖書館資源\n網路資源\nYouTube\n經濟系王光賢主任\n班導師沈淑芬老師\n電通系學長們\n沒有你們就沒有這些成果\n我愛你們!!!"
