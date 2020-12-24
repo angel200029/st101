@@ -19,6 +19,7 @@ def callback(request):
         try:
             events = parser.parse(body, signature)
            
+        
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
@@ -58,7 +59,7 @@ def callback(request):
                    elif mtext == '@法律資訊':
                         func.sendQuickreply(event)
               
-                   elif mtext == '@按鈕樣板':
+                   elif mtext == '@系統整體滿意度調查':
                         func.sendButton(event)
     
                    elif mtext == '@確認樣板':
